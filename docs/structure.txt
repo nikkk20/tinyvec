@@ -1,0 +1,61 @@
+tinyvec/
+├── CMakeLists.txt
+├── README.md
+├── LICENSE
+├── .gitignore
+│
+├── include/
+│   └── tinyvec/
+│       ├── core/
+│       │   ├── vector_ops.hpp        # distance functions, SIMD kernels
+│       │   └── types.hpp             # common typedefs (float32, ids, etc.)
+│       ├── index/
+│       │   ├── flat_index.hpp        # brute-force baseline
+│       │   ├── ivf_index.hpp
+│       │   ├── pq_index.hpp
+│       │   └── hnsw_index.hpp
+│       └── kmeans/
+│           └── kmeans.hpp
+│
+├── src/
+│   ├── core/
+│   │   └── vector_ops.cpp
+│   ├── index/
+│   │   ├── flat_index.cpp
+│   │   ├── ivf_index.cpp
+│   │   ├── pq_index.cpp
+│   │   └── hnsw_index.cpp
+│   └── kmeans/
+│       └── kmeans.cpp
+│
+├── bindings/
+│   └── python/
+│       ├── bindings.cpp              # pybind11 module definition
+│       └── CMakeLists.txt
+│
+├── tests/
+│   ├── CMakeLists.txt
+│   ├── test_vector_ops.cpp
+│   ├── test_kmeans.cpp
+│   ├── test_flat_index.cpp
+│   ├── test_ivf_index.cpp
+│   ├── test_pq_index.cpp
+│   └── test_hnsw_index.cpp
+│
+├── benchmarks/
+│   ├── CMakeLists.txt
+│   ├── bench_distance.cpp            # SIMD vs scalar
+│   ├── bench_recall_vs_speed.cpp
+│   └── plot_results.ipynb            # benchmark plots for README
+│
+├── scripts/
+│   ├── generate_embeddings.py        # sentence-transformers -> vectors.bin
+│   ├── download_sift1m.sh
+│   └── convert_to_bin.py
+│
+├── data/
+│   └── .gitkeep                      # raw datasets go here, gitignored
+│
+└── docs/
+    ├── design.md                     # architecture decisions, math notes
+    └── benchmarks.md                 # results tables/plots
