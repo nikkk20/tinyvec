@@ -13,6 +13,7 @@ add_library(tinyvec_core STATIC
     src/core/distance_scalar.cpp
     src/core/distance_avx2.cpp
     src/core/distance_avx512.cpp
+    src/index/flat_index.cpp
 )
 target_include_directories(tinyvec_core PUBLIC include)
 
